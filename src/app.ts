@@ -13,6 +13,7 @@ import { db } from "./config/firebase";
 import authRoutes from "./routes/auth";
 import categoryRoutes from "./routes/category";
 import deviceRoutes from "./routes/device";
+import healthRoutes from "./routes/health";
 import orderRoutes from "./routes/order";
 import paymentRoutes from "./routes/payment";
 import productRoutes from "./routes/product";
@@ -62,20 +63,53 @@ if (config.deviceRateLimit.enabled) {
   });
 }
 
-// Middleware
-app.use(rateLimitMiddleware);
+// Middleware - Order is important for security and logging!
+// Enhanced middleware will be integrated in next phase
+// app.use(healthCheckMiddleware); // Skip logging for health checks
+// app.use(correlationIdMiddleware); // Add correlation IDs first
+// app.use(securityHeadersMiddleware); // Add security headers
+// app.use(deviceIdMiddleware); // Extract device ID
+// app.use(rateLimitLoggingMiddleware); // Log rate limit events
+app.use(rateLimitMiddleware); // Apply rate limiting
 app.use(
   cors({
     origin: config.server.frontendUrl,
     credentials: true,
   })
 );
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'"],
+        imgSrc: ["'self'", "data:", "https:"],
+      },
+    },
+    hsts: {
+      maxAge: 31536000,
+      includeSubDomains: true,
+      preload: true,
+    },
+  })
+);
 app.use(morgan("combined"));
 app.use(requestLogger);
 app.use(express.static(path.join(__dirname, "../public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(
+  express.json({
+    limit: "10mb",
+    verify: (req, res, buf) => {
+      // Store raw body for webhook verification
+      (req as any).rawBody = buf;
+    },
+  })
+);
+// Enhanced logging middleware will be integrated in next phase
+// app.use(requestCompletionMiddleware); // Log request completion
+// app.use(authEventMiddleware); // Log auth events
 
 // Health check endpoints
 app.get("/", (_req: Request, res: Response) => {
@@ -95,6 +129,16 @@ app.get("/", (_req: Request, res: Response) => {
       payments: "/api/payments",
       stock: "/api/stock",
       device: "/api/device",
+      health: "/health",
+    },
+    features: {
+      authentication: "JWT-based authentication with role-based access control",
+      rateLimit: "Device-based rate limiting with IP fallback",
+      search: "Advanced search with filtering and pagination",
+      payments: "Flip payment gateway integration",
+      realtime: "Firebase Firestore real-time updates",
+      monitoring: "Comprehensive health checks and observability",
+      security: "Enhanced input validation and security headers",
     },
   });
 });
@@ -188,6 +232,7 @@ app.get("/test-firebase", async (_req: Request, res: Response) => {
 });
 
 // API Routes
+app.use("/health", healthRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
@@ -206,6 +251,9 @@ app.use("*", (_req: Request, res: Response) => {
     timestamp: new Date().toISOString(),
   });
 });
+
+// Enhanced error handling with correlation context will be integrated in next phase
+// app.use(errorCorrelationMiddleware);
 
 // Global error handler
 app.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
