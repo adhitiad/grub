@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "name": "grub-api",
+  "builds": [
+    {
+      "src": "dist/app.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/health",
+      "dest": "/dist/app.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/dist/app.js"
+    },
+    {
+      "src": "/",
+      "dest": "/dist/app.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "dist/app.js": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["sin1"],
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
+}
