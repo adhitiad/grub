@@ -71,9 +71,17 @@ class EnhancedLogger {
   private correlationStore = new Map<string, string>();
 
   constructor() {
-    // Ensure logs directory exists
-    if (!fs.existsSync(this.logDirectory)) {
-      fs.mkdirSync(this.logDirectory, { recursive: true });
+    // Only create logs directory in development environment
+    if (this.isDevelopment) {
+      try {
+        if (!fs.existsSync(this.logDirectory)) {
+          fs.mkdirSync(this.logDirectory, { recursive: true });
+        }
+      } catch (error) {
+        console.warn(
+          "Unable to create logs directory, falling back to console logging"
+        );
+      }
     }
   }
 
@@ -220,9 +228,13 @@ class EnhancedLogger {
         break;
     }
 
-    // File output (in production or when explicitly enabled)
-    if (!this.isDevelopment || process.env.LOG_TO_FILE === "true") {
-      this.writeToFile(entry);
+    // File output only in development mode
+    if (this.isDevelopment && process.env.LOG_TO_FILE === "true") {
+      try {
+        this.writeToFile(entry);
+      } catch (error) {
+        console.warn("Failed to write to log file:", error);
+      }
     }
   }
 
