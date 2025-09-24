@@ -6,7 +6,8 @@
       "src": "dist/app.js",
       "use": "@vercel/node",
       "config": {
-        "maxLambdaSize": "50mb"
+        "maxLambdaSize": "50mb",
+        "maxDuration": 30
       }
     }
   ],
@@ -27,13 +28,7 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "dist/app.js": {
-      "maxDuration": 30
-    }
-  },
   "regions": ["sin1"],
   "installCommand": "npm ci",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "buildCommand": "npm run build"
 }
