@@ -1,0 +1,68 @@
+# Vercel Environment Variables Setup
+# Copy these to your Vercel project settings > Environment Variables
+
+# Server Configuration
+NODE_ENV=production
+PORT=8520
+
+# Firebase Configuration (from your .env)
+FIREBASE_PROJECT_ID=cash-e4596
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-m7259@cash-e4596.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC+b6kthBpwvPsU
+7AJUZ0Dv59U7Iy44QIBX5dZdkl7m0ordiZ1lu8z9ix1A6m+xS72WsuLq3WsbBciv
+2NyyWUlSt3EYlQe1Rw39a31aVzSpjpkTzL43SfhAbNDiwHEdkrZjIhAJogwvN795
+DRbDIZou4Q/ItKWrIdJ0HJ8OY5HWCHDkpuHjQbO6iWdQQugJLiTVe8haGUepP7Yf
+w1GC3LGVxZPB4Jz1WSV/8EP0eA+ckqd1ZKCVxJ1GVMjNBNphkngrItSxVrQaU/Zt
+FJRJhHKgGsYAYgfcNzcrYUSjBfzQsTjroZ9XFxwPCzYm4TwEmKhCy+3dhq7mE3R8
+IhAk4p0hAgMBAAECggEASrEP+Ua1eh9dGU0h8snWueHDi+DWCYEe9Zqzc9rrdvwA
+NDj774FzusQb8rCgozjSQO+jubujfSNNHc9gbGFBtXw2kw4sykh2r70/mrXWdWR1
+HMNyncvY3yfu2+jf1NoMyB/9i1GwFrr2Ufu0wE8HIrjqUG2uBsuKuDjbl7Cs6/WR
+NxXtrk/IP4bxIIHJKMAJsrhsJ5uAfIXivcdKRdJQmDmLXcR9CNLlDbnBJZ/WFukT
+OILQs6zaGRLvbbLFNxB8Fhu/ReWkZwEmwjdVsl+EqDIYDJ/vd0ZId9XSH1G5/QIn
+r/wzeKtVh2NHDyTF7zapxW4qwJL6Dwb+ZaYNfpypYwKBgQDmuuaNBH+KCTB4x5AE
+u4yIGjb+wWaX7JLWofn7bM4m+nLzk12t7YtxpozyuuhX5Gb2Pew+4E35C5YWXaxj
+eCdQKh8ODZF2u3akK9/T0l4I/9IgVsgYChtDXsIpUWR3Qsd8ajgz8iliCQlrIfcE
+bDGIYTIHTiIlTS7M1gK7GJV2pwKBgQDTSwThCRxmH3xj9xL4Erb+1qVPSlnq+tza
+wQlhHCvEmX+yIVtK4eYiT+LboY6a5QVcxofpQXEG1nLw9BJgYBywp7xg6d183Wrb
+HgstaeMVB3/72TeT0HBCwX0zVuQXhWqRiNZsy3oaBjztXBxTq7zo1cPeE8zJHi7+
+AABB9FAO9wKBgQCKBZwNF3fD9yNL3PVGH3s9n5DubHsWvqpIQrTrtnbL0l4ZXzpW
+5RbZcaw3N5/tk/ATtY8xPbTnGgs6bebFygaaadgR7APsZs/d/XDzoZAnCgGE3uTr
+nIAamQDE/q9+uC/lORVN3brrrkQ4FiVSO/aVgq8Ot6qtbbJlTlBr45TlWQKBgCg0
+81W7PRs1zJ7dKk/oh8gQol5nQJsVZ6d86kL/cFi1+PW1oUCrofZPi1TN9mwFPrL7
+2GsLl+18K10spL6QK4V2NcOfXRVgsO/HVMsshhi/V5xeJlRLasFZPnDhjP/o1HGj
+P2Juieqf20Izr/RADu+jleURkXuH8dtFtsbWLdHbAoGBAImXg5ryf+XlGnOLMirK
+5r47tCre3a4bNMaIFt2lCjf15Pf6AQ8n5aBZJT1zGsfx+5wkgNAw9b/23EGjAS+h
+fktH0wIrC30zyqyMPTYUuCJkwt1750YNzaFCn2Qo99JHToH/kO18C2lYftc9vxRN
+HS4+hl2/7hAUWpOze37/Xb+y
+-----END PRIVATE KEY-----
+
+# JWT Configuration - GENERATE A NEW SECRET FOR PRODUCTION!
+JWT_SECRET=GENERATE_A_STRONG_SECRET_AT_LEAST_64_CHARACTERS_LONG_FOR_PRODUCTION
+JWT_EXPIRES_IN=1d
+
+# API Configuration - UPDATE AFTER DEPLOYMENT
+API_BASE_URL=https://your-vercel-app-name.vercel.app
+FRONTEND_URL=https://your-frontend-domain.com
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+DEVICE_RATE_LIMIT_ENABLED=true
+DEVICE_RATE_LIMIT_REQUIRE_DEVICE_ID=false
+DEVICE_RATE_LIMIT_FALLBACK_TO_IP=true
+DEVICE_RATE_LIMIT_WINDOW_MS=900000
+DEVICE_RATE_LIMIT_MAX_REQUESTS=100
+
+# Email Configuration (Optional - update with real values)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_SECURE=false
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+EMAIL_FROM=your-email@gmail.com
+EMAIL_FROM_NAME=Grub Distributor
+
+# Payment Configuration (Optional - update with real values)
+FLIP_SECRET_KEY=your-flip-secret-key
+FLIP_VALIDATION_TOKEN=your-flip-validation-token
