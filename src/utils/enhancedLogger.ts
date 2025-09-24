@@ -7,8 +7,10 @@ import { config } from "../config/env";
 export enum LogLevel {
   ERROR = "ERROR",
   WARN = "WARN",
-  INFO = "INFO",
-  DEBUG = "DEBUG",
+  INFO = "INF    // File output only when file logging is enabled
+    if (this.useFileLogging) {
+      this.writeToFile(entry);
+    }BUG = "DEBUG",
 }
 
 interface EnhancedLogEntry {
@@ -69,18 +71,21 @@ class EnhancedLogger {
   private isDevelopment = config.server.nodeEnv === "development";
   private logDirectory = "logs";
   private correlationStore = new Map<string, string>();
+  private useFileLogging = false;
 
   constructor() {
-    // Only create logs directory in development environment
-    if (this.isDevelopment) {
+    // Only enable file logging in development environment and when filesystem is available
+    if (this.isDevelopment && !process.env.VERCEL) {
       try {
         if (!fs.existsSync(this.logDirectory)) {
           fs.mkdirSync(this.logDirectory, { recursive: true });
         }
+        this.useFileLogging = true;
       } catch (error) {
         console.warn(
           "Unable to create logs directory, falling back to console logging"
         );
+        this.useFileLogging = false;
       }
     }
   }
@@ -182,12 +187,20 @@ class EnhancedLogger {
   }
 
   private writeToFile(entry: EnhancedLogEntry): void {
-    const logFile =
-      entry.level === LogLevel.ERROR ? "error.log" : "combined.log";
-    const logPath = path.join(this.logDirectory, logFile);
-    const formattedLog = this.formatStructuredLog(entry) + "\n";
+    if (!this.useFileLogging) {
+      return;
+    }
 
-    fs.appendFileSync(logPath, formattedLog);
+    try {
+      const logFile =
+        entry.level === LogLevel.ERROR ? "error.log" : "combined.log";
+      const logPath = path.join(this.logDirectory, logFile);
+      const formattedLog = this.formatStructuredLog(entry) + "\n";
+      fs.appendFileSync(logPath, formattedLog);
+    } catch (error) {
+      console.warn("Failed to write to log file:", error);
+      this.useFileLogging = false; // Disable file logging on error
+    }
   }
 
   private log(
@@ -228,13 +241,9 @@ class EnhancedLogger {
         break;
     }
 
-    // File output only in development mode
-    if (this.isDevelopment && process.env.LOG_TO_FILE === "true") {
-      try {
-        this.writeToFile(entry);
-      } catch (error) {
-        console.warn("Failed to write to log file:", error);
-      }
+    // File output only when file logging is enabled
+    if (this.useFileLogging) {
+      this.writeToFile(entry);
     }
   }
 
