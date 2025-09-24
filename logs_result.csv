@@ -1,0 +1,262 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-09-24 09:25:30",1758705930513,"grub-six.vercel.app/","GET","",-1,"cqrf5-1758705929481-5ff3d759d618","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36","error","production","main","","lambda","/src/app.ts","grub-six.vercel.app","grub-six.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGNKGRZS422KXZX833ZD81","",-1
+"2025-09-24 09:25:29",1758705929751,"grub-six.vercel.app/","GET","",500,"cqrf5-1758705929481-5ff3d759d618","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36","error","production","main","","lambda","/src/app.ts","grub-six.vercel.app","grub-six.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",740,"sin1",127,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGNKGRZS422KXZX833ZD81","",1
+"2025-09-24 09:24:59",1758705899305,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"fr2z2-1758705898023-9339a2b570a5","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMN1GPZJHK66QVPYPS86H","",-1
+"2025-09-24 09:24:58",1758705898544,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"fr2z2-1758705898023-9339a2b570a5","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",746,"sin1",128,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMN1GPZJHK66QVPYPS86H","",1
+"2025-09-24 09:24:54",1758705894494,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"9m8t7-1758705893659-00d08ceb77b0","vercel-favicon/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMGBVR8FXSVRVQSM82HWT","",-1
+"2025-09-24 09:24:53",1758705893855,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"jpp25-1758705891628-7b61e8897e4c","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMEFE0BK46HP0K7AP5KM2","",-1
+"2025-09-24 09:24:53",1758705893755,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"9m8t7-1758705893659-00d08ceb77b0","vercel-favicon/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",724,"sin1",130,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMGBVR8FXSVRVQSM82HWT","",1
+"2025-09-24 09:24:53",1758705893195,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"g5ts6-1758705892343-9d09d1892c61","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMF2RZTXYFCXFXRXKRJ5E","",-1
+"2025-09-24 09:24:52",1758705892565,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"pmv9g-1758705891407-38a0075ee2e7","vercel-favicon/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGME8D2YA88T5WACG5M9E9","",-1
+"2025-09-24 09:24:52",1758705892459,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"jpp25-1758705891396-e3c6214ebf0f","vercel-favicon/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGME88KV7A0X82QFDHYKB0","",-1
+"2025-09-24 09:24:52",1758705892440,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"g5ts6-1758705892343-9d09d1892c61","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",739,"sin1",128,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMF2RZTXYFCXFXRXKRJ5E","",1
+"2025-09-24 09:24:52",1758705892181,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"s8zh7-1758705890220-de1a91990d1e","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMD4RBYRNA1RVHVB90HET","",-1
+"2025-09-24 09:24:51",1758705891822,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"jpp25-1758705891628-7b61e8897e4c","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",892,"sin1",130,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMEFE0BK46HP0K7AP5KM2","",1
+"2025-09-24 09:24:51",1758705891597,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"pmv9g-1758705891407-38a0075ee2e7","vercel-favicon/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",903,"sin1",129,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGME8D2YA88T5WACG5M9E9","",1
+"2025-09-24 09:24:51",1758705891592,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"jpp25-1758705891396-e3c6214ebf0f","vercel-favicon/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",845,"sin1",128,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGME88KV7A0X82QFDHYKB0","",1
+"2025-09-24 09:24:51",1758705891458,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",-1,"4dqpz-1758705890159-61b771dd5c5c","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",-1,"sin1",-1,-1,"[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+⚠️  Warning: JWT_SECRET should be at least 64 characters in production
+✅ Environment configuration loaded successfully
+Firebase Admin SDK initialized successfully
+Error: ENOENT: no such file or directory, mkdir 'logs'
+    at Object.mkdirSync (node:fs:1364:26)
+    at new EnhancedLogger (/vercel/path0/src/utils/enhancedLogger.ts:76:10)
+    at Object.<anonymous> (/vercel/path0/src/utils/enhancedLogger.ts:456:31)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1282:12)
+    at /opt/rust/nodejs.js:2:13528
+    at Function.Vr (/opt/rust/nodejs.js:2:13906)
+    at Ue.e.<computed>.Be._load (/opt/rust/nodejs.js:2:13498) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'logs'
+}
+Node.js process exited with exit status: 1. The logs above can help with debugging the issue.","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMD4X1GWGTEREATW9GY56","",-1
+"2025-09-24 09:24:50",1758705890460,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"4dqpz-1758705890159-61b771dd5c5c","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",859,"sin1",130,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMD4X1GWGTEREATW9GY56","",1
+"2025-09-24 09:24:50",1758705890456,"grub-ojvbwh4rk-artcode96s-projects.vercel.app/","GET","",500,"s8zh7-1758705890220-de1a91990d1e","vercel-screenshot/1.0","error","production","main","","lambda","/src/app.ts","grub-ojvbwh4rk-artcode96s-projects.vercel.app","grub-ojvbwh4rk-artcode96s-projects.vercel.app","dpl_BqzNBDc97rFRqpjST4T4td6yQRP3",748,"sin1",128,2048,"","prj_wUdRKuftDEHfJwzKFLBbznX1b3u4","","","01K5XGMD4RBYRNA1RVHVB90HET","",1

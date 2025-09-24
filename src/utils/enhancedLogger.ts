@@ -8,7 +8,7 @@ export enum LogLevel {
   ERROR = "ERROR",
   WARN = "WARN",
   INFO = "INFO",
-  DEBUG = "DEBUG"
+  DEBUG = "DEBUG",
 }
 
 interface EnhancedLogEntry {

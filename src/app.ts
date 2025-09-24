@@ -33,6 +33,16 @@ import { requestLogger } from "./middleware/requestLogger";
 const app: Application = express();
 const port = config.server.port;
 
+// Configure CORS
+app.use(
+  cors({
+    origin: ["https://grub-frontend.vercel.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization", "X-Device-ID"],
+  })
+);
+
 // Configure rate limiting based on environment settings
 let rateLimitMiddleware;
 
@@ -76,29 +86,10 @@ if (config.deviceRateLimit.enabled) {
 // app.use(deviceIdMiddleware); // Extract device ID
 // app.use(rateLimitLoggingMiddleware); // Log rate limit events
 app.use(rateLimitMiddleware); // Apply rate limiting
-app.use(
-  cors({
-    origin: config.server.frontendUrl,
-    credentials: true,
-  })
-);
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-        scriptSrc: ["'self'"],
-        imgSrc: ["'self'", "data:", "https:"],
-      },
-    },
-    hsts: {
-      maxAge: 31536000,
-      includeSubDomains: true,
-      preload: true,
-    },
-  })
-);
+
+// Configure Helmet for security while allowing frontend access
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("combined"));
 app.use(requestLogger);
 app.use(express.static(path.join(__dirname, "../public")));
