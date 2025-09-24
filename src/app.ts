@@ -10,13 +10,18 @@ import "./config/firebase";
 import { db } from "./config/firebase";
 
 // Import routes
+import analyticsRoutes from "./routes/analytics";
 import authRoutes from "./routes/auth";
 import categoryRoutes from "./routes/category";
 import deviceRoutes from "./routes/device";
 import healthRoutes from "./routes/health";
+import imageUploadRoutes from "./routes/imageUpload";
+import inventoryRoutes from "./routes/inventory";
 import orderRoutes from "./routes/order";
 import paymentRoutes from "./routes/payment";
 import productRoutes from "./routes/product";
+import reportsRoutes from "./routes/reports";
+import searchRoutes from "./routes/search";
 import stockRoutes from "./routes/stock";
 import storeRoutes from "./routes/store";
 import userRoutes from "./routes/user";
@@ -129,6 +134,10 @@ app.get("/", (_req: Request, res: Response) => {
       payments: "/api/payments",
       stock: "/api/stock",
       device: "/api/device",
+      inventory: "/api/inventory",
+      reports: "/api/reports",
+      images: "/api/images",
+      search: "/api/search",
       health: "/health",
     },
     features: {
@@ -242,6 +251,11 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/stock", stockRoutes);
 app.use("/api/device", deviceRoutes);
+app.use("/api/analytics", analyticsRoutes);
+app.use("/api/inventory", inventoryRoutes);
+app.use("/api/reports", reportsRoutes);
+app.use("/api/images", imageUploadRoutes);
+app.use("/api/search", searchRoutes);
 
 // 404 handler
 app.use("*", (_req: Request, res: Response) => {

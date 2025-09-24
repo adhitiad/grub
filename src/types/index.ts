@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 // User Schema
 export const UserSchema = z.object({
@@ -33,10 +33,19 @@ export type Store = z.infer<typeof StoreSchema>;
 export const ProductSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, "Product name is required"),
-  category: z.string().min(1, "Category is required"),
+  category: z.object({
+    id: z.string(),
+    name: z.string(),
+  }),
   price: z.number().min(0, "Price must be positive"),
+  purchasePrice: z
+    .number()
+    .min(0, "Purchase price must be positive")
+    .optional(),
   stock: z.number().min(0, "Stock must be positive"),
   description: z.string().optional(),
+  imageUrl: z.string().optional(),
+  isActive: z.boolean().default(true),
   createdAt: z.date().default(new Date()),
   updatedAt: z.date().default(new Date()),
 });
@@ -46,15 +55,60 @@ export type Product = z.infer<typeof ProductSchema>;
 // Order Schema
 export const OrderSchema = z.object({
   id: z.string().optional(),
-  customerId: z.string().min(1, "Customer ID is required"),
-  items: z.array(z.object({
-    productId: z.string().min(1, "Product ID is required"),
-    quantity: z.number().min(1, "Quantity must be at least 1"),
-    price: z.number().min(0, "Price must be positive"),
-  })),
+  userId: z.string().min(1, "User ID is required"),
+  customerId: z.string().min(1, "Customer ID is required").optional(),
+  items: z.array(
+    z.object({
+      productId: z.string().min(1, "Product ID is required"),
+      productName: z.string(),
+      quantity: z.number().min(1, "Quantity must be at least 1"),
+      priceAtTimeOfOrder: z.number().min(0, "Price must be positive"),
+    })
+  ),
   totalAmount: z.number().min(0, "Total amount must be positive"),
-  status: z.enum(["pending", "processing", "shipped", "delivered", "cancelled"]).default("pending"),
-  paymentStatus: z.enum(["pending", "paid", "failed"]).default("pending"),
+  status: z
+    .enum([
+      "pending_payment",
+      "processing",
+      "shipped",
+      "completed",
+      "cancelled",
+      "failed",
+    ])
+    .default("pending_payment"),
+  paymentStatus: z
+    .enum(["pending", "paid", "failed"])
+    .default("pending")
+    .optional(),
+  paymentDetails: z
+    .object({
+      method: z.string(),
+      flipBillId: z.string().optional(),
+      paymentUrl: z.string().optional(),
+    })
+    .optional(),
+  shippingAddress: z
+    .object({
+      street: z.string(),
+      city: z.string(),
+      postalCode: z.string(),
+      phone: z.string(),
+    })
+    .optional(),
+  notes: z.string().optional(),
+  statusHistory: z
+    .array(
+      z.object({
+        status: z.string(),
+        timestamp: z.date(),
+        updatedBy: z.string(),
+        notes: z.string().optional(),
+      })
+    )
+    .optional(),
+  cancelledAt: z.date().optional(),
+  cancelledBy: z.string().optional(),
+  cancellationReason: z.string().optional(),
   createdAt: z.date().default(new Date()),
   updatedAt: z.date().default(new Date()),
 });

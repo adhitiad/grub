@@ -7,8 +7,11 @@ import { createErrorResponse, enhancedLogger } from "../utils/enhancedLogger";
 declare global {
   namespace Express {
     interface Request {
-      files?: any;
-      file?: any;
+      files?:
+        | { [fieldname: string]: Express.Multer.File[] }
+        | Express.Multer.File[]
+        | undefined;
+      file?: Express.Multer.File | undefined;
     }
   }
 }
@@ -506,6 +509,9 @@ export const validateFileUpload = (
     next();
   };
 };
+
+// Named exports
+export const validateRequest = enhancedValidateRequest;
 
 export default {
   enhancedValidateRequest,

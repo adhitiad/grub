@@ -35,6 +35,14 @@ interface ServiceHealth {
   details?: any;
 }
 
+const checkStatus = (service: ServiceHealth) => {
+  const unhealthy = service.status === "unhealthy";
+  const degraded = service.status === "degraded";
+  const healthy = service.status === "healthy";
+
+  return unhealthy || degraded || healthy;
+};
+
 /**
  * Basic health check endpoint
  */
@@ -95,7 +103,7 @@ export const healthCheck = async (req: Request, res: Response) => {
       .json(
         createSuccessResponse("Health check completed", healthResult, context)
       );
-  } catch (error) {
+  } catch (error: any) {
     const errorResult = {
       status: "unhealthy",
       timestamp: new Date().toISOString(),

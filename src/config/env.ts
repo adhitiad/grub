@@ -7,7 +7,7 @@ dotenv.config();
 // Environment validation schema
 const envSchema = z.object({
   // Server Configuration
-  PORT: z.string().default("3000").transform(Number),
+  PORT: z.string().default("8520").transform(Number),
   NODE_ENV: z
     .enum(["development", "production", "test"])
     .default("development"),
@@ -52,6 +52,18 @@ const envSchema = z.object({
     .transform((val) => val === "true"),
   DEVICE_RATE_LIMIT_WINDOW_MS: z.string().default("900000").transform(Number),
   DEVICE_RATE_LIMIT_MAX_REQUESTS: z.string().default("100").transform(Number),
+
+  // Email Configuration
+  EMAIL_HOST: z.string().optional(),
+  EMAIL_PORT: z.string().default("587").transform(Number),
+  EMAIL_SECURE: z
+    .string()
+    .default("false")
+    .transform((val) => val === "true"),
+  EMAIL_USER: z.string().optional(),
+  EMAIL_PASSWORD: z.string().optional(),
+  EMAIL_FROM: z.string().optional(),
+  EMAIL_FROM_NAME: z.string().default("Grub Distributor"),
 });
 
 // Validate environment variables
@@ -77,6 +89,16 @@ export const config = {
     nodeEnv: env.NODE_ENV,
     apiBaseUrl: env.API_BASE_URL,
     frontendUrl: env.FRONTEND_URL,
+    baseUrl: env.API_BASE_URL,
+  },
+  email: {
+    host: env.EMAIL_HOST,
+    port: env.EMAIL_PORT,
+    secure: env.EMAIL_SECURE,
+    user: env.EMAIL_USER,
+    password: env.EMAIL_PASSWORD,
+    from: env.EMAIL_FROM,
+    fromName: env.EMAIL_FROM_NAME,
   },
   firebase: {
     projectId: env.FIREBASE_PROJECT_ID,

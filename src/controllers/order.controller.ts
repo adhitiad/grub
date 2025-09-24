@@ -299,3 +299,183 @@ export const searchOrders = async (req: Request, res: Response) => {
     });
   }
 };
+
+// Update order status
+export const updateOrderStatus = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { status, notes } = req.body;
+    const user = req.user!;
+
+    // Validate status
+    const validStatuses = [
+      "pending_payment",
+      "processing",
+      "shipped",
+      "completed",
+      "cancelled",
+      "failed",
+    ];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Status order tidak valid",
+        validStatuses,
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    const orderDoc = await ordersCollection.doc(id).get();
+    if (!orderDoc.exists) {
+      return res.status(404).json({
+        success: false,
+        message: "Order tidak ditemukan",
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    const order = orderDoc.data() as Order;
+
+    // Role-based access control
+    if (user.role === "customer" && order.userId !== user.id) {
+      return res.status(403).json({
+        success: false,
+        message: "Akses ditolak",
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // Customers can only cancel their own orders
+    if (user.role === "customer" && status !== "cancelled") {
+      return res.status(403).json({
+        success: false,
+        message: "Customer hanya bisa membatalkan order",
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // Update order status
+    const updateData: any = {
+      status,
+      updatedAt: new Date(),
+    };
+
+    if (notes) {
+      updateData.notes = notes;
+    }
+
+    // Add status history
+    if (!(order as any).statusHistory) {
+      updateData.statusHistory = [];
+    } else {
+      updateData.statusHistory = (order as any).statusHistory;
+    }
+
+    updateData.statusHistory.push({
+      status,
+      timestamp: new Date(),
+      updatedBy: user.id,
+      notes: notes || null,
+    });
+
+    await ordersCollection.doc(id).update(updateData);
+
+    res.status(200).json({
+      success: true,
+      message: "Status order berhasil diperbarui",
+      data: {
+        orderId: id,
+        newStatus: status,
+        updatedBy: user.id,
+        timestamp: new Date().toISOString(),
+      },
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error("Update order status error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error server saat memperbarui status order",
+      error: error instanceof Error ? error.message : "Unknown error",
+      timestamp: new Date().toISOString(),
+    });
+  }
+};
+
+// Cancel order
+export const cancelOrder = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { reason } = req.body;
+    const user = req.user!;
+
+    const orderDoc = await ordersCollection.doc(id).get();
+    if (!orderDoc.exists) {
+      return res.status(404).json({
+        success: false,
+        message: "Order tidak ditemukan",
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    const order = orderDoc.data() as Order;
+
+    // Role-based access control
+    if (user.role === "customer" && order.userId !== user.id) {
+      return res.status(403).json({
+        success: false,
+        message: "Akses ditolak",
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // Check if order can be cancelled
+    if (["completed", "cancelled", "failed"].includes(order.status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Order tidak dapat dibatalkan",
+        currentStatus: order.status,
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // Update order to cancelled
+    const updateData = {
+      status: "cancelled",
+      cancelledAt: new Date(),
+      cancelledBy: user.id,
+      cancellationReason: reason || "Dibatalkan oleh user",
+      updatedAt: new Date(),
+      statusHistory: (order as any).statusHistory || [],
+    };
+
+    updateData.statusHistory.push({
+      status: "cancelled",
+      timestamp: new Date(),
+      updatedBy: user.id,
+      notes: reason || "Dibatalkan oleh user",
+    });
+
+    await ordersCollection.doc(id).update(updateData);
+
+    res.status(200).json({
+      success: true,
+      message: "Order berhasil dibatalkan",
+      data: {
+        orderId: id,
+        cancelledBy: user.id,
+        reason: reason || "Dibatalkan oleh user",
+        timestamp: new Date().toISOString(),
+      },
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error("Cancel order error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error server saat membatalkan order",
+      error: error instanceof Error ? error.message : "Unknown error",
+      timestamp: new Date().toISOString(),
+    });
+  }
+};
