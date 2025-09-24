@@ -7,10 +7,8 @@ import { config } from "../config/env";
 export enum LogLevel {
   ERROR = "ERROR",
   WARN = "WARN",
-  INFO = "INF    // File output only when file logging is enabled
-    if (this.useFileLogging) {
-      this.writeToFile(entry);
-    }BUG = "DEBUG",
+  INFO = "INFO",
+  DEBUG = "DEBUG"
 }
 
 interface EnhancedLogEntry {
