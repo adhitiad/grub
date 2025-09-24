@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "name": "grub-api",
+  "builds": [
+    {
+      "src": "src/app.ts",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/health",
+      "dest": "/src/app.ts"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/app.ts"
+    },
+    {
+      "src": "/",
+      "dest": "/src/app.ts"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["sin1"],
+  "installCommand": "npm ci --only=production",
+  "buildCommand": "npm run build"
+}
