@@ -11,7 +11,8 @@ declare global {
 }
 
 // Validate JWT_SECRET exists
-const JWT_SECRET = process.env.JWT_SECRET || "123456";
+const JWT_SECRET =
+  process.env.JWT_SECRET || "asdfghjklqweertyuiopzxcvbnmasdfgtre";
 if (!JWT_SECRET) {
   throw new Error("Variabel lingkungan JWT_SECRET diperlukan");
 }

@@ -1,10 +1,10 @@
 import { config } from "../config/env";
 
 export enum LogLevel {
-  ERROR = "ERROR",
-  WARN = "WARN",
-  INFO = "INFO",
-  DEBUG = "DEBUG",
+  ERROR = "⛔ERROR",
+  WARN = "⚠️ WARN",
+  INFO = "ℹ️ INFO",
+  DEBUG = "🐞 DEBUG",
 }
 
 interface LogEntry {

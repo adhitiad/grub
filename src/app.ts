@@ -27,6 +27,12 @@ import storeRoutes from "./routes/store";
 import userRoutes from "./routes/user";
 
 // Import middleware
+import {
+  authEventMiddleware,
+  correlationIdMiddleware,
+  rateLimitLoggingMiddleware,
+  requestCompletionMiddleware,
+} from "./middleware/correlationId";
 import { createDeviceRateLimit } from "./middleware/deviceRateLimit";
 import { requestLogger } from "./middleware/requestLogger";
 
@@ -99,10 +105,10 @@ if (config.deviceRateLimit.enabled) {
 // Middleware - Order is important for security and logging!
 // Enhanced middleware will be integrated in next phase
 // app.use(healthCheckMiddleware); // Skip logging for health checks
-// app.use(correlationIdMiddleware); // Add correlation IDs first
+app.use(correlationIdMiddleware); // Add correlation IDs first
 // app.use(securityHeadersMiddleware); // Add security headers
 // app.use(deviceIdMiddleware); // Extract device ID
-// app.use(rateLimitLoggingMiddleware); // Log rate limit events
+app.use(rateLimitLoggingMiddleware); // Log rate limit events
 app.use(rateLimitMiddleware); // Apply rate limiting
 
 // Configure Helmet for security while allowing frontend access
@@ -122,8 +128,8 @@ app.use(
   })
 );
 // Enhanced logging middleware will be integrated in next phase
-// app.use(requestCompletionMiddleware); // Log request completion
-// app.use(authEventMiddleware); // Log auth events
+app.use(requestCompletionMiddleware); // Log request completion
+app.use(authEventMiddleware); // Log auth events
 
 // Health check endpoints
 app.get("/", (_req: Request, res: Response) => {
