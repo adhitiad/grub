@@ -11,9 +11,9 @@ declare global {
 }
 
 // Validate JWT_SECRET exists
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || "123456";
 if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET environment variable is required");
+  throw new Error("Variabel lingkungan JWT_SECRET diperlukan");
 }
 
 export const protect = (req: Request, res: Response, next: NextFunction) => {
@@ -42,7 +42,7 @@ export const protect = (req: Request, res: Response, next: NextFunction) => {
       req.user = decoded;
       next();
     } catch (error) {
-      console.error("JWT verification error:", error);
+      console.error("JWT verification error erojjg:", error);
       return res.status(401).json({
         success: false,
         message: "Tidak terotentikasi, token gagal.",

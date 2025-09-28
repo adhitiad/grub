@@ -39,7 +39,23 @@ app.use(
     origin: ["https://grub-frontend.vercel.app", "http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "X-Device-ID"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Device-ID",
+      "Origin",
+      "Accept",
+      "X-Requested-With",
+      "Access-Control-Request-Method",
+      "Access-Control-Request-Headers",
+      "Access-Control-Allow-Origin",
+      "Access-Control-Allow-Credentials",
+      "Access-Control-Allow-Headers",
+      "Access-Control-Allow-Methods",
+      "Access-Control-Expose-Headers",
+      "Access-Control-Max-Age",
+      "Access-Control-Request-Headers",
+    ],
   })
 );
 
