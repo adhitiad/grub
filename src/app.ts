@@ -46,6 +46,8 @@ app.use(
       "Origin",
       "Accept",
       "X-Requested-With",
+      "X-Correlation-Id",
+      "x-correlation-id",
       "Access-Control-Request-Method",
       "Access-Control-Request-Headers",
       "Access-Control-Allow-Origin",
