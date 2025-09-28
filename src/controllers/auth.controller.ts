@@ -43,8 +43,10 @@ export const register = async (req: Request, res: Response) => {
     const { password: _, ...userWithoutPassword } = newUser;
 
     res.status(201).send({ id: docRef.id, ...userWithoutPassword });
-  } catch (error) {
-    res.status(500).send({ message: "Terjadi kesalahan di server", error });
+  } catch (error: any) {
+    res
+      .status(500)
+      .send({ message: "Terjadi kesalahan di server", error: error.message });
   }
 };
 
@@ -86,7 +88,9 @@ export const login = async (req: Request, res: Response) => {
         role: userData.role,
       },
     });
-  } catch (error) {
-    res.status(500).send({ message: "Terjadi kesalahan di server", error });
+  } catch (error: any) {
+    res
+      .status(500)
+      .send({ message: "Terjadi kesalahan di server", error: error.message });
   }
 };
